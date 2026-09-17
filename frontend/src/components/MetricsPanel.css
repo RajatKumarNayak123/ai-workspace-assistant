@@ -1,0 +1,268 @@
+/* =========================================
+   METRICS PANEL
+========================================= */
+
+.metrics-panel {
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+
+    height: 100%;
+
+    background: #0b1220;
+
+    border-left: 1px solid #1f2937;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    flex-shrink: 0;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.metrics-title {
+    margin: 0 0 20px 0;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================
+   METRIC CARD
+========================================= */
+
+.metric-card {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    margin-bottom: 16px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.metric-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #475569;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.metric-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    color: #f8fafc;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.metric-header svg {
+    color: #60a5fa;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   VALUE
+========================================= */
+
+.metric-value {
+    font-size: 27px;
+
+    font-weight: 700;
+
+    color: #3b82f6;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.metric-progress {
+    width: 100%;
+
+    height: 9px;
+
+    background: #334155;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-top: 5px;
+}
+
+
+.metric-progress-fill {
+    height: 100%;
+
+    background: #3b82f6;
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+
+.metric-percent {
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 13px;
+
+    color: #60a5fa;
+}
+
+
+/* =========================================
+   MODEL BADGE
+========================================= */
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SOURCES
+========================================= */
+
+.source-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.source-list span {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 10px;
+
+    border: 1px solid #3b82f6;
+
+    border-radius: 18px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: #dbeafe;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.status.success {
+    color: #4ade80;
+}
+
+
+/* =========================================
+   METRICS SCROLLBAR
+========================================= */
+
+.metrics-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.metrics-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.metrics-panel::-webkit-scrollbar-thumb {
+    background: #334155;
+
+    border-radius: 10px;
+}
+
+
+.metrics-panel::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+
+/* Firefox */
+
+.metrics-panel {
+    scrollbar-width: thin;
+
+    scrollbar-color: #334155 transparent;
+}

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+logs/
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Uploads
+uploads/
+
+
+# ChromaDB
+backend/vector_db/
+
+# Hugging Face Cache (optional)
+.cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+

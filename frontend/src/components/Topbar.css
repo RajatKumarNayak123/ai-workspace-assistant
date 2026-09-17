@@ -1,0 +1,1764 @@
+
+/* =========================================================
+   TOPBAR — PROFESSIONAL AI SAAS THEME
+   Existing class names preserved
+========================================================= */
+
+
+/* =========================================================
+   PROFILE CONTAINER
+========================================================= */
+
+.profile-container {
+    position: relative;
+}
+
+
+/* =========================================================
+   PROFILE CHIP
+========================================================= */
+
+.profile-chip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 5px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: inherit;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.profile-chip:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+.profile-chip:active {
+    transform: scale(0.98);
+}
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    background: linear-gradient(
+        135deg,
+        #6366f1 0%,
+        #7c3aed 100%
+    );
+    color: #ffffff;
+    box-shadow:
+        0 0 0 2px rgba(99, 102, 241, 0.14),
+        0 4px 12px rgba(99, 102, 241, 0.18);
+}
+
+.profile-chevron {
+    color: #94a3b8;
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.profile-chip:hover .profile-chevron {
+    color: #cbd5e1;
+}
+
+.profile-chevron.open {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   PROFILE DROPDOWN
+========================================================= */
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 278px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(15, 23, 42, 0.98)
+        );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.42),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 1000;
+    animation: profileDropdownIn 0.16s ease;
+}
+
+@keyframes profileDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   USER INFO
+========================================================= */
+
+.profile-user-info,
+.profile-login-header {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px;
+}
+
+.profile-large-avatar {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #6366f1 0%,
+        #7c3aed 100%
+    );
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10),
+        0 6px 16px rgba(99, 102, 241, 0.20);
+}
+
+.profile-user-info div:last-child,
+.profile-login-header div:last-child {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.profile-user-info strong,
+.profile-login-header strong {
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.25;
+}
+
+.profile-user-info span,
+.profile-login-header span {
+    color: #94a3b8;
+    font-size: 11.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.profile-divider {
+    height: 1px;
+    background: rgba(148, 163, 184, 0.11);
+    margin: 7px 3px;
+}
+
+
+/* =========================================================
+   MENU ITEM
+========================================================= */
+
+.profile-menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #cbd5e1;
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 13px;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.15s ease;
+}
+
+.profile-menu-item:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.profile-menu-item:active {
+    transform: scale(0.985);
+}
+
+.profile-menu-item.logout {
+    color: #fca5a5;
+}
+
+.profile-menu-item.logout:hover {
+    background: rgba(239, 68, 68, 0.085);
+    border-color: rgba(239, 68, 68, 0.10);
+    color: #f87171;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.profile-login-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(129, 140, 248, 0.22);
+    border-radius: 9px;
+    padding: 10px 12px;
+    background: linear-gradient(
+        135deg,
+        #6366f1 0%,
+        #7c3aed 100%
+    );
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:
+        0 6px 18px rgba(99, 102, 241, 0.18);
+    transition:
+        transform 0.15s ease,
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-login-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+    box-shadow:
+        0 8px 22px rgba(99, 102, 241, 0.25);
+}
+
+.profile-login-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   LOGIN OVERLAY
+========================================================= */
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 7, 18, 0.74);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+========================================================= */
+
+.login-modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background:
+        linear-gradient(
+            180deg,
+            #111827 0%,
+            #0f172a 100%
+        );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.50),
+        0 10px 30px rgba(0, 0, 0, 0.22);
+    animation: loginModalIn 0.2s ease;
+}
+
+@keyframes loginModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.login-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.login-close:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LOGIN HEADER
+========================================================= */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 13px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.16),
+            rgba(124, 58, 237, 0.13)
+        );
+    border: 1px solid rgba(129, 140, 248, 0.14);
+    color: #818cf8;
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.10);
+}
+
+.login-header h2 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 21px;
+    font-weight: 650;
+    letter-spacing: -0.2px;
+}
+
+.login-header p {
+    margin: 7px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOGIN FORM
+========================================================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.login-field label {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 9px;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(255, 255, 255, 0.035);
+    color: #64748b;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
+}
+
+.login-input-wrapper:hover {
+    border-color: rgba(148, 163, 184, 0.22);
+}
+
+.login-input-wrapper:focus-within {
+    border-color: rgba(99, 102, 241, 0.75);
+    background: rgba(99, 102, 241, 0.055);
+    color: #818cf8;
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+.login-input-wrapper input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f8fafc;
+    font-size: 13px;
+}
+
+.login-input-wrapper input::placeholder {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   LOGIN ERROR
+========================================================= */
+
+.login-error {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(239, 68, 68, 0.075);
+    border: 1px solid rgba(239, 68, 68, 0.16);
+    color: #fca5a5;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.login-submit {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(129, 140, 248, 0.20);
+    border-radius: 9px;
+    background: linear-gradient(
+        135deg,
+        #6366f1 0%,
+        #7c3aed 100%
+    );
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:
+        0 7px 20px rgba(99, 102, 241, 0.17);
+    transition:
+        opacity 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-submit:hover:not(:disabled) {
+    opacity: 0.96;
+    transform: translateY(-1px);
+    box-shadow:
+        0 9px 25px rgba(99, 102, 241, 0.24);
+}
+
+.login-submit:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.login-submit:disabled {
+    opacity: 0.60;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.login-spinner {
+    animation: loginSpin 0.9s linear infinite;
+}
+
+@keyframes loginSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.login-security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+    color: #64748b;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   MODEL SELECTOR
+========================================================= */
+
+.model-selector {
+    position: relative;
+}
+
+.model-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 205px;
+    padding: 6px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(15, 23, 42, 0.98)
+        );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 12px;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 200;
+    animation: modelDropdownIn 0.15s ease;
+}
+
+@keyframes modelDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.model-dropdown button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #cbd5e1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+    transition:
+        background 0.16s ease,
+        border-color 0.16s ease,
+        color 0.16s ease;
+}
+
+.model-dropdown button:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   SEARCH CONTAINER
+========================================================= */
+
+.search-container {
+    position: relative;
+}
+
+
+/* =========================================================
+   SEARCH RESULTS DROPDOWN
+========================================================= */
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 340px;
+    max-height: 390px;
+    overflow-y: auto;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(15, 23, 42, 0.98)
+        );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 13px;
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 9999;
+    overflow-x: hidden;
+    animation: searchResultsIn 0.15s ease;
+}
+
+@keyframes searchResultsIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SEARCH RESULT ITEM
+========================================================= */
+
+.search-result-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+    transition:
+        background 0.15s ease;
+}
+
+.search-result-item:hover {
+    background: rgba(255, 255, 255, 0.055);
+}
+
+
+/* =========================================================
+   FILE ICON
+========================================================= */
+
+.search-result-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99, 102, 241, 0.11),
+            rgba(124, 58, 237, 0.08)
+        );
+    border: 1px solid rgba(129, 140, 248, 0.10);
+}
+
+
+/* =========================================================
+   RESULT INFORMATION
+========================================================= */
+
+.search-result-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.search-result-name {
+    font-size: 13px;
+    font-weight: 550;
+    color: #f1f5f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-result-type {
+    font-size: 11px;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   SEARCH MESSAGE
+========================================================= */
+
+.search-message {
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   DOCUMENT PREVIEW OVERLAY
+========================================================= */
+
+.document-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(3, 7, 18, 0.80);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+}
+
+
+/* =========================================================
+   DOCUMENT PREVIEW MODAL
+========================================================= */
+
+.document-preview-modal {
+    width: min(1000px, 94vw);
+    height: min(760px, 90vh);
+    display: flex;
+    flex-direction: column;
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.55),
+        0 10px 30px rgba(0, 0, 0, 0.20);
+    animation: documentPreviewIn 0.2s ease;
+}
+
+@keyframes documentPreviewIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   PREVIEW HEADER
+========================================================= */
+
+.document-preview-header {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 0 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #0f172a
+        );
+}
+
+.document-preview-title {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+    color: #818cf8;
+}
+
+.document-preview-title div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.document-preview-title strong {
+    max-width: 650px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.document-preview-title span {
+    color: #64748b;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.document-preview-close {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.document-preview-close:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   PREVIEW BODY
+========================================================= */
+
+.document-preview-body {
+    flex: 1;
+    min-height: 0;
+    background: #0b1120;
+}
+
+
+/* =========================================================
+   PDF FRAME
+========================================================= */
+
+.document-preview-frame {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   UNSUPPORTED FILE
+========================================================= */
+
+.document-preview-unsupported {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #64748b;
+    text-align: center;
+}
+
+.document-preview-unsupported h3 {
+    margin: 5px 0 0;
+    color: #e2e8f0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.document-preview-unsupported p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PREVIEW FOOTER
+========================================================= */
+
+.document-preview-footer {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 18px;
+    border-top: 1px solid rgba(148, 163, 184, 0.10);
+    background: #111827;
+}
+
+.document-preview-footer span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.document-preview-open {
+    flex-shrink: 0;
+    color: #818cf8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.18s ease;
+}
+
+.document-preview-open:hover {
+    color: #a5b4fc;
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+.notification-container {
+    position: relative;
+}
+
+
+/* =========================================================
+   NOTIFICATION BUTTON
+========================================================= */
+
+.notification-btn {
+    position: relative;
+}
+
+
+/* =========================================================
+   NOTIFICATION BADGE
+========================================================= */
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+    border: 2px solid #0f172a;
+    box-sizing: border-box;
+    box-shadow:
+        0 2px 7px rgba(239, 68, 68, 0.30);
+}
+
+
+/* =========================================================
+   NOTIFICATION DROPDOWN
+========================================================= */
+
+.notification-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 390px;
+    max-height: 520px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 24, 39, 0.98),
+            rgba(15, 23, 42, 0.98)
+        );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 15px;
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+    z-index: 1000;
+    animation: notificationDropdownIn 0.16s ease;
+}
+
+@keyframes notificationDropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   NOTIFICATION HEADER
+========================================================= */
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+    background: rgba(255, 255, 255, 0.012);
+}
+
+.notification-header h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.notification-header span {
+    display: block;
+    margin-top: 3px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MARK ALL READ
+========================================================= */
+
+.mark-all-read-btn {
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #60a5fa;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 7px;
+    transition:
+        background 0.16s ease,
+        border-color 0.16s ease;
+}
+
+.mark-all-read-btn:hover {
+    background: rgba(96, 165, 250, 0.09);
+    border-color: rgba(96, 165, 250, 0.10);
+}
+
+
+/* =========================================================
+   NOTIFICATION LIST
+========================================================= */
+
+.notification-list {
+    max-height: 430px;
+    overflow-y: auto;
+}
+
+.notification-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.20);
+    border-radius: 999px;
+}
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.32);
+}
+
+
+/* =========================================================
+   NOTIFICATION ITEM
+========================================================= */
+
+.notification-item {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border: none;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background 0.15s ease;
+}
+
+.notification-item:hover {
+    background: rgba(148, 163, 184, 0.055);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   UNREAD
+========================================================= */
+
+.notification-item.unread {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(59, 130, 246, 0.075),
+            rgba(59, 130, 246, 0.025)
+        );
+}
+
+.notification-item.unread:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(59, 130, 246, 0.11),
+            rgba(59, 130, 246, 0.04)
+        );
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.notification-item-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(96, 165, 250, 0.12),
+            rgba(59, 130, 246, 0.07)
+        );
+    border: 1px solid rgba(96, 165, 250, 0.10);
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.notification-item-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.notification-item-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #f1f5f9;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.35;
+}
+
+.notification-item-content p {
+    margin: 4px 0 5px;
+    color: #aebbcf;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.notification-time {
+    color: #64748b;
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   UNREAD DOT
+========================================================= */
+
+.notification-unread-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #3b82f6;
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+
+/* =========================================================
+   EMPTY / LOADING
+========================================================= */
+
+.notification-state {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 30px;
+    color: #64748b;
+    text-align: center;
+}
+
+.notification-state strong {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.notification-state span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / FOCUS
+========================================================= */
+
+.profile-chip:focus-visible,
+.profile-menu-item:focus-visible,
+.profile-login-button:focus-visible,
+.login-close:focus-visible,
+.login-submit:focus-visible,
+.model-dropdown button:focus-visible,
+.search-result-item:focus-visible,
+.document-preview-close:focus-visible,
+.mark-all-read-btn:focus-visible,
+.notification-item:focus-visible,
+.document-preview-open:focus-visible {
+    outline: 2px solid rgba(129, 140, 248, 0.70);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .profile-dropdown {
+        width: 260px;
+    }
+
+    .search-results {
+        width: min(340px, calc(100vw - 30px));
+    }
+
+    .notification-dropdown {
+        width: min(370px, calc(100vw - 30px));
+    }
+
+    .document-preview-overlay {
+        padding: 15px;
+    }
+
+    .document-preview-modal {
+        width: 96vw;
+        height: 92vh;
+        border-radius: 14px;
+    }
+
+    .document-preview-title strong {
+        max-width: 52vw;
+    }
+
+    .login-modal {
+        max-width: 400px;
+        padding: 27px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .profile-dropdown {
+        right: -5px;
+        width: min(278px, calc(100vw - 24px));
+    }
+
+    .model-dropdown {
+        right: -5px;
+        min-width: 190px;
+    }
+
+    .search-results {
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100vw - 24px);
+    }
+
+    .notification-dropdown {
+        right: -5px;
+        width: calc(100vw - 24px);
+        max-height: 470px;
+    }
+
+    .notification-list {
+        max-height: 380px;
+    }
+
+    .notification-header {
+        padding: 14px;
+    }
+
+    .notification-item {
+        padding: 13px 14px;
+    }
+
+    .login-overlay {
+        padding: 12px;
+    }
+
+    .login-modal {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    .login-header h2 {
+        font-size: 20px;
+    }
+
+    .document-preview-overlay {
+        padding: 8px;
+    }
+
+    .document-preview-modal {
+        width: 100%;
+        height: 94vh;
+        border-radius: 12px;
+    }
+
+    .document-preview-header {
+        min-height: 58px;
+        padding: 0 10px 0 14px;
+    }
+
+    .document-preview-title {
+        gap: 8px;
+    }
+
+    .document-preview-title strong {
+        max-width: 62vw;
+        font-size: 13px;
+    }
+
+    .document-preview-footer {
+        min-height: 48px;
+        padding: 0 12px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .profile-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .profile-chip {
+        gap: 6px;
+        padding: 4px 6px;
+    }
+
+    .notification-dropdown {
+        right: -8px;
+        width: calc(100vw - 16px);
+    }
+
+    .search-results {
+        width: calc(100vw - 16px);
+    }
+
+    .login-modal {
+        padding: 22px 17px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-dropdown,
+    .login-modal,
+    .model-dropdown,
+    .search-results,
+    .notification-dropdown {
+        animation: none;
+    }
+
+    .profile-chip,
+    .profile-menu-item,
+    .profile-login-button,
+    .login-close,
+    .login-submit,
+    .model-dropdown button,
+    .mark-all-read-btn {
+        transition: none;
+    }
+}
+
+
+/* =========================================================
+   TOPBAR — FINAL HORIZONTAL ALIGNMENT
+   ========================================================= */
+
+/* Main topbar */
+.topbar {
+    width: 100%;
+    height: 68px;
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 24px;
+    box-sizing: border-box;
+
+    gap: 20px;
+}
+
+/* =========================================================
+   PROJECT TITLE
+   ========================================================= */
+
+.topbar-title,
+.topbar-brand,
+.brand-title {
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    flex-shrink: 0;
+
+    line-height: 1;
+}
+
+/* If title is inside a wrapper */
+.topbar-title-container,
+.topbar-brand-container,
+.brand {
+    flex-shrink: 0;
+    min-width: max-content;
+
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================================
+   CENTER AREA
+   ========================================================= */
+
+.topbar-center {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-container {
+    position: relative;
+
+    flex: 1;
+    max-width: 520px;
+    min-width: 220px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================================
+   MODEL SELECTOR
+   ========================================================= */
+
+.model-selector {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+
+    margin: 0;
+}
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.topbar-right {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-left: auto;
+}
+
+/* Notification */
+.notification-container {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile */
+.profile-container {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   PROFILE CHIP
+   ========================================================= */
+
+.profile-chip {
+    display: flex;
+    align-items: center;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   PREVENT TITLE / CONTROLS FROM WRAPPING
+   ========================================================= */
+
+.topbar > *,
+.topbar-center > *,
+.topbar-right > * {
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   SEARCH RESULTS SHOULD NOT AFFECT TOPBAR LAYOUT
+   ========================================================= */
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .topbar {
+        padding: 0 18px;
+        gap: 14px;
+    }
+
+    .search-container {
+        max-width: 400px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .topbar {
+        padding: 0 14px;
+        gap: 12px;
+    }
+
+    .topbar-title,
+    .topbar-brand,
+    .brand-title {
+        font-size: 17px;
+    }
+
+    .search-container {
+        min-width: 180px;
+        max-width: 340px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .topbar {
+        gap: 10px;
+    }
+
+    .search-container {
+        min-width: 150px;
+    }
+
+    .model-selector {
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .topbar {
+        height: 60px;
+        min-height: 60px;
+
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .search-container {
+        min-width: 0;
+        max-width: none;
+    }
+
+    .topbar-title,
+    .topbar-brand,
+    .brand-title {
+        max-width: 190px;
+        font-size: 16px;
+    }
+
+    .profile-chip {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .topbar-title,
+    .topbar-brand,
+    .brand-title {
+        max-width: 145px;
+        font-size: 15px;
+    }
+
+    .notification-container {
+        display: none;
+    }
+}

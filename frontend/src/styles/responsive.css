@@ -1,0 +1,41 @@
+@media(max-width:1200px){
+
+    .metrics-panel{
+
+        display:none;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+
+        width:90px;
+    }
+
+    .sidebar span{
+
+        display:none;
+    }
+
+    .sidebar-header p{
+
+        display:none;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .topbar{
+
+        padding:10px;
+    }
+
+    .search-box{
+
+        display:none;
+    }
+
+}

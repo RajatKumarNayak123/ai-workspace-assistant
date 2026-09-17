@@ -1,0 +1,333 @@
+/* =========================================================
+   CONVERSATION HISTORY
+========================================================= */
+
+.conversation-history {
+
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    padding: 24px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.conversation-history h2 {
+
+    flex-shrink: 0;
+
+    margin: 0 0 24px 0;
+
+    font-size: 26px;
+    font-weight: 700;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   MESSAGE SCROLL AREA
+========================================================= */
+
+.history-messages {
+
+    flex: 1;
+
+    min-height: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 4px 10px 80px 4px;
+
+    scroll-behavior: smooth;
+
+    /*
+       IMPORTANT:
+       Scrollbar completely hidden
+    */
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+}
+
+
+/* Chrome / Edge / Firefox compatible */
+
+.history-messages::-webkit-scrollbar {
+
+    display: none;
+
+    width: 0;
+    height: 0;
+
+}
+
+
+/* =========================================================
+   USER MESSAGE
+========================================================= */
+
+.history-user-message {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    width: 100%;
+
+    flex-shrink: 0;
+}
+
+
+.history-user-card {
+
+    max-width: 70%;
+
+    padding: 14px 18px;
+
+    border-radius:
+        18px
+        18px
+        4px
+        18px;
+
+    background: #2563eb;
+
+    color: white;
+
+    word-break: break-word;
+
+}
+
+
+.history-user-card .history-role {
+
+    margin-bottom: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    opacity: 0.85;
+
+}
+
+
+/* =========================================================
+   COMMON CONTENT
+========================================================= */
+
+.history-content {
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* =========================================================
+   ASSISTANT MESSAGE
+========================================================= */
+
+.history-assistant-message {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    width: 100%;
+
+    flex-shrink: 0;
+
+}
+
+
+.history-avatar {
+
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 12px
+        rgba(37, 99, 235, 0.3);
+
+}
+
+
+.history-assistant-card {
+
+    max-width: 75%;
+
+    padding: 18px 20px;
+
+    border-radius:
+        4px
+        18px
+        18px
+        18px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    color: #e5e7eb;
+
+    word-break: break-word;
+
+}
+
+
+.history-assistant-card .history-role {
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+}
+
+
+.history-assistant-card .history-content {
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   SCROLL TO BOTTOM BUTTON
+========================================================= */
+
+.history-scroll-bottom {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 28px;
+
+    transform: translateX(-50%);
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    border: 1px solid #475569;
+
+    background:
+        rgba(15, 23, 42, 0.96);
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.history-scroll-bottom:hover {
+
+    background: #2563eb;
+
+    transform:
+        translateX(-50%)
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(37, 99, 235, 0.35);
+
+}
+
+
+/* =========================================================
+   LOADING / EMPTY
+========================================================= */
+
+.conversation-history-status {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+}
