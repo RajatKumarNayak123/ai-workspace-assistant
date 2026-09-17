@@ -663,33 +663,67 @@ Potential future improvements include:
 
 ## 🖥️ Screenshots
 
-Screenshots can be added here after the final UI polish.
+### 1. Main AI Chat
 
-Suggested screenshots:
+The main conversational AI interface for interacting with the workspace assistant.
 
-1. Login / Registration
-2. Main AI workspace
-3. RAG document chat
-4. Document upload
-5. Conversation history
-6. Global search
-7. Workspace settings
-8. AI image generation
-9. Notifications
-10. Retrieval metrics
+![Main AI Chat](Screenshots/01-main-chat.png)
 
-Example:
+---
 
-```text
-docs/
-└── screenshots/
-    ├── login.png
-    ├── workspace.png
-    ├── rag-chat.png
-    ├── documents.png
-    ├── search.png
-    └── settings.png
-```
+### 2. Workspace & Documents
+
+Workspace-based document management with uploaded files organized within the selected workspace.
+
+![Workspace and Documents](Screenshots/02-workspace-documents.png)
+
+---
+
+### 3. RAG Document Chat
+
+Document-aware question answering using the RAG pipeline, with retrieved sources and citations included in the response.
+
+![RAG Document Chat](Screenshots/03-rag-document-chat.png)
+
+---
+
+### 4. Global Search
+
+Search workspace documents directly from the application header with interactive search results and document preview support.
+
+![Global Search](Screenshots/04-global-search.png)
+
+---
+
+### 5. AI Image Generation
+
+AI-assisted image generation integrated directly into the conversational workspace experience.
+
+![AI Image Generation](Screenshots/05-ai-image-generation.png)
+
+---
+
+### 6. Profile & Settings
+
+User profile and workspace application settings available from the authenticated application interface.
+
+![Profile and Settings](Screenshots/06-profile-settings.png)
+
+---
+
+### 7. Security
+
+Security and account-management controls for the authenticated user.
+
+![Security Settings](Screenshots/07-security.png)
+
+---
+
+### 8. Document Upload
+
+Document ingestion workflow for adding files to the selected workspace for processing and retrieval.
+
+![Document Upload](Screenshots/08-document-upload.png)
 
 ---
 
