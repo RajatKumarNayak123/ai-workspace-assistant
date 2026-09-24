@@ -213,7 +213,7 @@ The project follows a separated frontend/backend architecture.
 ### AI / Machine Learning
 
 * Google Gemini
-* LangChain-based LLM integration
+* LangChain, LCEL, LangGraph-based LLM integration
 * Text embeddings
 * Vector search
 * BM25 retrieval
@@ -351,6 +351,110 @@ Question + Retrieved Context
              ▼
        Source Citations
 ```
+
+---
+
+
+---
+
+## 🦜 LangChain & LCEL
+
+LangChain is used for structured LLM integration and chain-based workflows.
+
+The project also includes LangChain Expression Language (LCEL) based chains for composing prompt templates, language models, and output parsing.
+
+Conceptually:
+
+```text
+Chat Prompt Template
+        │
+        ▼
+    Gemini LLM
+        │
+        ▼
+ String Output Parser
+        │
+        ▼
+    Final Output
+```
+
+---
+
+
+## 🕸️ LangGraph
+
+LangGraph is used to orchestrate the production RAG workflow as a graph-based processing pipeline.
+
+The workflow coordinates query classification, routing, retrieval, context preparation, LLM generation, and response handling.
+
+Conceptually:
+
+```text
+User Question
+      │
+      ▼
+Query Classification
+      │
+      ▼
+   Routing
+      │
+      ├───────────────┐
+      ▼               ▼
+General Query     Document Query
+                      │
+                      ▼
+                 RAG Retrieval
+                      │
+                      ▼
+              Context Preparation
+                      │
+                      ▼
+                  Gemini LLM
+                      │
+                      ▼
+             Answer + Citations
+```
+
+LangGraph provides structured orchestration for the AI workflow and keeps the processing steps explicit and maintainable.
+
+---
+
+
+## ☁️ AWS Deployment
+
+The application is deployed on an AWS EC2 instance running Amazon Linux 2023.
+
+### Deployment Architecture
+
+```text
+Internet
+   │
+   ├── Frontend :3000
+   │       │
+   │       ▼
+   │   Next.js Application
+   │
+   └── Backend :8000
+           │
+           ▼
+       FastAPI Application
+           │
+           ├── MySQL Database
+           ├── Chroma Vector Store
+           └── Gemini API
+```
+
+The frontend and backend run as Linux systemd services so that both applications start automatically and restart if a process stops.
+
+- AWS EC2
+- Amazon Linux 2023
+- Python 3.11 virtual environment
+- Node.js / Next.js production server
+- FastAPI + Uvicorn
+- MySQL
+- systemd process management
+- Frontend port: `3000`
+- Backend port: `8000`
 
 ---
 
@@ -648,7 +752,6 @@ This project was built to demonstrate practical full-stack engineering combined 
 
 Potential future improvements include:
 
-* Production deployment
 * Cloud object storage for uploaded files
 * Background document processing
 * Streaming AI responses
