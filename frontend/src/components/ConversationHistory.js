@@ -27,7 +27,7 @@ export default function ConversationHistory({ sessionId }) {
                 console.log("TOKEN BEFORE HISTORY REQUEST:", token);
 
                 const response = await fetch(
-                    `http://127.0.0.1:8000/chat/history/${sessionId}`,
+                    `http://52.66.236.4:8000/chat/history/${sessionId}`,
                     {
                         method: "GET",
                         headers: {

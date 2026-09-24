@@ -91,7 +91,7 @@ export default function RegisterForm() {
             // -----------------------------------------
 
             const response = await fetch(
-                "http://127.0.0.1:8000/register",
+                "http://52.66.236.4:8000/register",
                 {
                     method: "POST",
 

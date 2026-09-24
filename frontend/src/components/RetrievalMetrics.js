@@ -16,7 +16,7 @@ import {
 
 import "./RetrievalMetrics.css";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "http://52.66.236.4:8000";
 
 export default function RetrievalMetrics({workspaceId,}) {
 

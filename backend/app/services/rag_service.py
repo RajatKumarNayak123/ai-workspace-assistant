@@ -1,5 +1,6 @@
 import json
 import time
+import re
 
 from app.vectorstore.vector_service import VectorService
 from app.retrieval.bm25_service import BM25Service
@@ -160,6 +161,90 @@ class RagService:
             phrase in normalized
             for phrase in broad_phrases
         )
+
+    # ==========================================================
+    # EXACT FACTUAL FIELD RETRIEVAL
+    # ==========================================================
+
+    @staticmethod
+    def get_factual_field_chunks(
+        question: str,
+        chunks: list,
+    ):
+        """
+        Preserve chunks containing explicitly requested factual
+        fields such as email addresses and phone numbers.
+
+        This is a lightweight retrieval safeguard. It does not
+        call the LLM and does not replace vector/BM25/RRF retrieval.
+        """
+
+        if not question or not chunks:
+            return []
+
+        normalized = question.lower()
+
+        requested_email = (
+            "email" in normalized
+            or "e-mail" in normalized
+        )
+
+        requested_phone = any(
+            phrase in normalized
+            for phrase in (
+                "phone",
+                "phone number",
+                "mobile",
+                "mobile number",
+                "contact number",
+                "contact no",
+            )
+        )
+
+        if not requested_email and not requested_phone:
+            return []
+
+        results = []
+
+        email_pattern = re.compile(
+            r"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}",
+            re.IGNORECASE,
+        )
+
+        phone_pattern = re.compile(
+            r"(?<!\d)(?:\+?\d[\d\s().-]{7,}\d)(?!\d)"
+        )
+
+        for chunk in chunks:
+
+            chunk_text = chunk.get(
+                "text",
+                "",
+            )
+
+            if not chunk_text:
+                continue
+
+            has_email = (
+                requested_email
+                and email_pattern.search(
+                    chunk_text
+                )
+            )
+
+            has_phone = (
+                requested_phone
+                and phone_pattern.search(
+                    chunk_text
+                )
+            )
+
+            if has_email or has_phone:
+                results.append(
+                    chunk.copy()
+                )
+
+        return results
 
     # ==========================================================
     # SAVE CONVERSATION
@@ -719,6 +804,53 @@ class RagService:
             rrf_chunks
         )
 
+        factual_chunks = []
+
+        # ==========================================================
+        # PRESERVE EXPLICIT FACTUAL FIELDS
+        # ==========================================================
+
+        if not broad_document_question:
+
+            factual_chunks = (
+                RagService.get_factual_field_chunks(
+                    question=rewritten_question,
+                    chunks=all_chunks,
+                )
+            )
+
+            if factual_chunks:
+
+                existing_ids = {
+                    chunk["chunk_id"]
+                    for chunk in rrf_chunks
+                }
+
+                for chunk in factual_chunks:
+
+                    if chunk["chunk_id"] not in existing_ids:
+
+                        rrf_chunks.append(
+                            chunk
+                        )
+
+                        existing_ids.add(
+                            chunk["chunk_id"]
+                        )
+
+                print("=" * 80)
+                print("FACTUAL FIELD CHUNKS")
+
+                for chunk in factual_chunks:
+
+                    print(
+                        chunk["chunk_id"],
+                        chunk.get("filename"),
+                        chunk.get("document_id"),
+                    )
+
+                print("=" * 80)
+
         # ==========================================================
         # 6. CROSS ENCODER RERANKING
         # ==========================================================
@@ -766,13 +898,39 @@ class RagService:
 
         elif rag_settings.reranker_enabled:
 
-            chunks = (
+            reranked_chunks = (
                 CrossEncoderReranker.rerank(
                     query=rewritten_question,
                     chunks=rrf_chunks,
                     top_k=rag_settings.reranker_top_k,
                 )
             )
+
+            if factual_chunks:
+
+                reranked_ids = {
+                    chunk["chunk_id"]
+                    for chunk in reranked_chunks
+                }
+
+                factual_preserved = []
+
+                for chunk in factual_chunks:
+
+                    if chunk["chunk_id"] not in reranked_ids:
+
+                        factual_preserved.append(
+                            chunk
+                        )
+
+                chunks = (
+                    factual_preserved
+                    + reranked_chunks
+                )
+
+            else:
+
+                chunks = reranked_chunks
 
         else:
 
@@ -1056,64 +1214,73 @@ USER QUESTION:
         )
 
         # ==========================================================
-        # 13. PARSE JSON
+        # 13. PARSE GEMINI RESPONSE
         # ==========================================================
 
-        try:
-
-            parsed = json.loads(
-                response
-            )
-
-            if not isinstance(
-                parsed,
-                dict,
-            ):
-
-                raise ValueError(
-                    "Gemini response JSON is not an object."
-                )
-
-            answer = parsed.get(
-                "answer",
-                "",
-            )
-
-            llm_chunk_ids = parsed.get(
-                "citations",
-                [],
-            )
-
-            if not isinstance(
-                answer,
-                str,
-            ):
-
-                answer = str(
-                    answer
-                    or ""
-                )
-
-            if not isinstance(
-                llm_chunk_ids,
-                list,
-            ):
-
-                llm_chunk_ids = []
-
-        except (
-            json.JSONDecodeError,
-            TypeError,
-            ValueError,
+        if response.startswith(
+            "⚠️ AI service is temporarily unavailable."
         ):
 
-            print(
-                "Gemini returned invalid JSON."
-            )
-
             answer = response
-
             llm_chunk_ids = []
+
+        else:
+
+            try:
+
+                parsed = json.loads(
+                    response
+                )
+
+                if not isinstance(
+                    parsed,
+                    dict,
+                ):
+
+                    raise ValueError(
+                        "Gemini response JSON is not an object."
+                    )
+
+                answer = parsed.get(
+                    "answer",
+                    "",
+                )
+
+                llm_chunk_ids = parsed.get(
+                    "citations",
+                    [],
+                )
+
+                if not isinstance(
+                    answer,
+                    str,
+                ):
+
+                    answer = str(
+                        answer
+                        or ""
+                    )
+
+                if not isinstance(
+                    llm_chunk_ids,
+                    list,
+                ):
+
+                    llm_chunk_ids = []
+
+            except (
+                json.JSONDecodeError,
+                TypeError,
+                ValueError,
+            ):
+
+                print(
+                    "Gemini returned invalid JSON."
+                )
+
+                answer = response
+
+                llm_chunk_ids = []
 
         # ==========================================================
         # 14. SAVE CONVERSATION

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import api from "../services/api";
 import RetrievalMetrics from "../components/RetrievalMetrics";
@@ -14,7 +14,7 @@ import ConversationHistory from "../components/ConversationHistory";
 import Settings from "../components/Settings";
 
 
-export default function Home() {
+function HomeContent() {
 
     // ==========================================
     // ACTIVE SECTION
@@ -25,7 +25,7 @@ export default function Home() {
     // ==========================================
 
     const [selectedModel, setSelectedModel] =
-        useState("gemini-3.5-flash");
+        useState("gemini-3.6-flash");
     
     const [activeSection, setActiveSection] =
         useState("chat");
@@ -1297,4 +1297,12 @@ export default function Home() {
 
     );
 
+}
+
+export default function Home() {
+    return (
+        <Suspense fallback={null}>
+            <HomeContent />
+        </Suspense>
+    );
 }

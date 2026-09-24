@@ -228,7 +228,7 @@ export default function Topbar({
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/login",
+                "http://52.66.236.4:8000/login",
                 {
                     method: "POST",
 
@@ -421,7 +421,7 @@ export default function Topbar({
             }
 
             const response = await fetch(
-                "http://127.0.0.1:8000/me/notifications/list",
+                "http://52.66.236.4:8000/me/notifications/list",
                 {
                     method: "GET",
                     headers: {
@@ -505,7 +505,7 @@ export default function Topbar({
                     );
 
                 const response = await fetch(
-                    `http://127.0.0.1:8000/me/notifications/${notification.id}/read`,
+                    `http://52.66.236.4:8000/me/notifications/${notification.id}/read`,
                     {
                         method: "PUT",
 
@@ -569,7 +569,7 @@ export default function Topbar({
                 );
 
             const response = await fetch(
-                "http://127.0.0.1:8000/me/notifications/read-all",
+                "http://52.66.236.4:8000/me/notifications/read-all",
                 {
                     method: "PUT",
 
@@ -644,7 +644,7 @@ export default function Topbar({
 
 
             const response = await fetch(
-                `http://127.0.0.1:8000/search?q=${encodeURIComponent(
+                `http://52.66.236.4:8000/search?q=${encodeURIComponent(
                     value
                 )}`,
                 {
@@ -727,7 +727,7 @@ export default function Topbar({
 
 
             const response = await fetch(
-                `http://127.0.0.1:8000/workspaces/${document.workspace_id}/documents/${document.id}/preview`,
+                `http://52.66.236.4:8000/workspaces/${document.workspace_id}/documents/${document.id}/preview`,
                 {
                     method: "GET",
 

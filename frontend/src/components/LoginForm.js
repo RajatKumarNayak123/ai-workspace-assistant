@@ -52,7 +52,7 @@ export default function LoginForm() {
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/login",
+                "http://52.66.236.4:8000/login",
                 {
                     method: "POST",
 

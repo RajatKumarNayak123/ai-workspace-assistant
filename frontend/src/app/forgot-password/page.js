@@ -91,7 +91,7 @@ export default function ForgotPasswordPage() {
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/forgot-password/request",
+                "http://52.66.236.4:8000/forgot-password/request",
                 {
                     method: "POST",
 
@@ -180,7 +180,7 @@ export default function ForgotPasswordPage() {
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/forgot-password/verify-otp",
+                "http://52.66.236.4:8000/forgot-password/verify-otp",
                 {
                     method: "POST",
 
@@ -277,7 +277,7 @@ export default function ForgotPasswordPage() {
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/forgot-password/resend-otp",
+                "http://52.66.236.4:8000/forgot-password/resend-otp",
                 {
                     method: "POST",
 
@@ -368,7 +368,7 @@ export default function ForgotPasswordPage() {
 
 
             const response = await fetch(
-                "http://127.0.0.1:8000/forgot-password/reset",
+                "http://52.66.236.4:8000/forgot-password/reset",
                 {
                     method: "POST",
 

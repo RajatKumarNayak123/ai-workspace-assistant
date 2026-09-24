@@ -8,7 +8,7 @@ class Settings(BaseSettings):
 
     GOOGLE_API_KEY: str
     #GEMINI_MODEL: str = "gemini-flash-latest"
-    GEMINI_MODEL: str ="gemini-3.5-flash"
+    GEMINI_MODEL: str ="gemini-3.6-flash"
     GEMINI_IMAGE_MODEL: str = "gemini-3.1-flash-image"
     GEMINI_TEMPERATURE: float = 0.3
     GEMINI_RETRY_ATTEMPTS: int = 3

@@ -217,6 +217,10 @@ class QueryClassifier:
 
         "technologies used",
         "technology used",
+        "technologies were used",
+        "technology was used",
+        "technologies are used",
+        "technology is used",
     )
 
     # ======================================================

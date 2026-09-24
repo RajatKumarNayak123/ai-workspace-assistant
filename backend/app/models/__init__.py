@@ -9,4 +9,5 @@ from app.models.conversation_message import ConversationMessage
 from app.models.workspace_rag_settings import WorkspaceRAGSettings
 from app.models.workspace_chat_settings import WorkspaceChatSettings
 from app.models.notification import Notification
+from app.models.notification_preferences import NotificationPreferences
 from app.models.user_session import UserSession
